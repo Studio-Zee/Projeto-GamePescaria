@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d4kt58d75wgip"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="HookSystem" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="HookSystem"]
+
+[node name="Area2D" type="Area2D" parent="HookSystem"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="Node"]
+
+[node name="UI" type="CanvasLayer" parent="."]
