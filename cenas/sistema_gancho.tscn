@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://kk882k6jj10j"]
+
+[ext_resource type="Texture2D" uid="uid://r5tup8emt1a4" path="res://imagens/anzol.png" id="1_70ley"]
+[ext_resource type="Script" uid="uid://caif5yfwbiijs" path="res://scripts/sistema_gancho.gd" id="1_k6x7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbvkx"]
+size = Vector2(20, 32)
+
+[node name="SistemaGancho" type="Node2D" unique_id=858350891]
+script = ExtResource("1_k6x7t")
+
+[node name="Corda" type="Line2D" parent="." unique_id=178940439]
+width = 5.0
+texture_mode = 1
+
+[node name="PontoDeOrigem" type="Marker2D" parent="." unique_id=181396198]
+
+[node name="Garra" type="Area2D" parent="." unique_id=1914669533]
+position = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garra" unique_id=406581443]
+shape = SubResource("RectangleShape2D_rbvkx")
+
+[node name="anzol" type="Sprite2D" parent="Garra" unique_id=1262462499]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_70ley")
+
+[connection signal="area_entered" from="Garra" to="." method="_on_garra_area_entered"]

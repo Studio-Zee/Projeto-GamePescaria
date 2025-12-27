@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://duccvbeb1eih1"]
+
+[ext_resource type="Script" uid="uid://cox0512fbjodq" path="res://scripts/peixe.gd" id="1_evbt0"]
+[ext_resource type="Texture2D" uid="uid://dtdtsl5yyacow" path="res://imagens/peixe.png" id="1_tq34s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfcme"]
+size = Vector2(35, 18)
+
+[node name="Peixe" type="Area2D" unique_id=1927115430 groups=["peixes"]]
+script = ExtResource("1_evbt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1480683710]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_lfcme")
+
+[node name="peixe" type="Sprite2D" parent="." unique_id=503780339]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_tq34s")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=200101160]
+rect = Rect2(-18, -10, 35, 20)

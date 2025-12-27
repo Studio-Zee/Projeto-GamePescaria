@@ -1,17 +1,50 @@
 [gd_scene format=3 uid="uid://d4kt58d75wgip"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" uid="uid://c7nmi3q2xyvl3" path="res://scripts/main.gd" id="1_mtgg2"]
+[ext_resource type="Script" uid="uid://b5lto4jpjkkee" path="res://scripts/gancho_system.gd" id="2_t4ukd"]
+[ext_resource type="PackedScene" uid="uid://duccvbeb1eih1" path="res://cenas/peixe.tscn" id="3_4fhxt"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vabh6"]
 
-[node name="HookSystem" type="Node2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtgg2"]
 
-[node name="Line2D" type="Line2D" parent="HookSystem"]
+[node name="Main" type="Node2D" unique_id=562882898]
+script = ExtResource("1_mtgg2")
 
-[node name="Area2D" type="Area2D" parent="HookSystem"]
+[node name="Cenario" type="Node2D" parent="." unique_id=317186520]
 
-[node name="Node" type="Node" parent="."]
+[node name="Background" type="ParallaxBackground" parent="Cenario" unique_id=446632549]
+visible = false
 
-[node name="Timer" type="Timer" parent="Node"]
+[node name="AguaShader" type="ColorRect" parent="Cenario" unique_id=839802742]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="GameManager" type="Node" parent="." unique_id=1095733438]
+
+[node name="PlayerBoat" type="CharacterBody2D" parent="GameManager" unique_id=1928837318]
+position = Vector2(336, 68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/PlayerBoat" unique_id=1510520178]
+shape = SubResource("RectangleShape2D_vabh6")
+
+[node name="SpriteBarco" type="Sprite2D" parent="GameManager/PlayerBoat" unique_id=243603034]
+
+[node name="GanchoSystem" type="Node2D" parent="GameManager/PlayerBoat" unique_id=29904060]
+script = ExtResource("2_t4ukd")
+
+[node name="Linha" type="Line2D" parent="GameManager/PlayerBoat/GanchoSystem" unique_id=324370289]
+
+[node name="PontaGancho" type="Area2D" parent="GameManager/PlayerBoat/GanchoSystem" unique_id=1260234157]
+position = Vector2(0, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/PlayerBoat/GanchoSystem/PontaGancho" unique_id=1801847884]
+shape = SubResource("RectangleShape2D_mtgg2")
+
+[node name="PeixesContainer" type="Node2D" parent="GameManager" unique_id=155804079]
+
+[node name="UI" type="CanvasLayer" parent="GameManager" unique_id=1679857954]
+
+[node name="Peixe" parent="." unique_id=1927115430 instance=ExtResource("3_4fhxt")]
+position = Vector2(444, 258)
