@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djcvsdykwknfw"]
+
+[ext_resource type="Script" uid="uid://ddy125iwqgjqp" path="res://scripts/player/player.gd" id="1_w152q"]
+[ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="2_4i5rx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
+
+[node name="jogo" type="Node2D" unique_id=430194434]
+
+[node name="player" type="Node2D" parent="." unique_id=305810562]
+position = Vector2(343, 547)
+script = ExtResource("1_w152q")
+
+[node name="BarcoSprite" type="Sprite2D" parent="player" unique_id=1125401417]
+scale = Vector2(1.8974212, 0.28830296)
+texture = ExtResource("2_4i5rx")
+
+[node name="LinhaPesca" type="Line2D" parent="player" unique_id=1592300442]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0)
+
+[node name="Anzol" type="Area2D" parent="player" unique_id=1562847963]
+
+[node name="AnzolSprite" type="Sprite2D" parent="player/Anzol" unique_id=2025160907]
+scale = Vector2(0.36838615, 1.0182332)
+texture = ExtResource("2_4i5rx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Anzol" unique_id=713681700]
+shape = SubResource("CircleShape2D_kqu6x")
+
+[connection signal="area_entered" from="player/Anzol" to="." method="_on_anzol_area_entered"]
