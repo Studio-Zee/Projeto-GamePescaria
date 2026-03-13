@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ddy125iwqgjqp" path="res://scripts/player/player.gd" id="1_w152q"]
 [ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="2_4i5rx"]
+[ext_resource type="PackedScene" uid="uid://spuc6dk7exs7" path="res://cenas/peixe/peixe.tscn" id="3_4i5rx"]
+[ext_resource type="Script" uid="uid://d0k8jdw7liixr" path="res://scripts/spawnerPeixes/spawner_peixes.gd" id="4_a8ubr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -19,12 +21,23 @@ texture = ExtResource("2_4i5rx")
 points = PackedVector2Array(0, 0, 0, 0, 0, 0)
 
 [node name="Anzol" type="Area2D" parent="player" unique_id=1562847963]
+scale = Vector2(0.2, 0.2)
 
 [node name="AnzolSprite" type="Sprite2D" parent="player/Anzol" unique_id=2025160907]
-scale = Vector2(0.36838615, 1.0182332)
 texture = ExtResource("2_4i5rx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Anzol" unique_id=713681700]
 shape = SubResource("CircleShape2D_kqu6x")
 
-[connection signal="area_entered" from="player/Anzol" to="." method="_on_anzol_area_entered"]
+[node name="Peixe" parent="." unique_id=675272164 instance=ExtResource("3_4i5rx")]
+position = Vector2(41, 954)
+
+[node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
+script = ExtResource("4_a8ubr")
+peixe_cena = ExtResource("3_4i5rx")
+
+[node name="Timer" type="Timer" parent="SpawnerPeixes" unique_id=1440818253]
+wait_time = 1.5
+autostart = true
+
+[connection signal="area_entered" from="player/Anzol" to="player" method="_on_anzol_area_entered"]

@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://spuc6dk7exs7"]
 
+[ext_resource type="Script" uid="uid://bsj7fmqwg7f8l" path="res://scripts/peixe/peixe.gd" id="1_0aln1"]
 [ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="1_sqpse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqpse"]
 size = Vector2(56.76252, 30.781033)
 
-[node name="peixe" type="Area2D" unique_id=675272164 groups=["peixes"]]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340325473]
-scale = Vector2(0.5860465, 0.48022598)
-texture = ExtResource("1_sqpse")
+[node name="Peixe" type="Area2D" unique_id=675272164 groups=["peixes"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_0aln1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056733503]
 position = Vector2(-4.7683716e-07, -0.5937891)
 scale = Vector2(1.3389118, 2.040621)
 shape = SubResource("RectangleShape2D_sqpse")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340325473]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.5860465, 0.48022598)
+texture = ExtResource("1_sqpse")
