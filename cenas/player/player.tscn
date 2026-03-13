@@ -1,17 +1,36 @@
 [gd_scene format=3 uid="uid://djcvsdykwknfw"]
 
+[ext_resource type="Script" uid="uid://cmj7gxp03o3ms" path="res://scripts/jogoRaiz/cronometro.gd" id="1_bmch6"]
 [ext_resource type="Script" uid="uid://ddy125iwqgjqp" path="res://scripts/player/player.gd" id="1_w152q"]
 [ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="2_4i5rx"]
 [ext_resource type="PackedScene" uid="uid://spuc6dk7exs7" path="res://cenas/peixe/peixe.tscn" id="3_4i5rx"]
 [ext_resource type="Script" uid="uid://d0k8jdw7liixr" path="res://scripts/spawnerPeixes/spawner_peixes.gd" id="4_a8ubr"]
+[ext_resource type="PackedScene" uid="uid://cbox1b5hnqnpm" path="res://cenas/peixe/peixe_amarelo.tscn" id="6_h2li5"]
+[ext_resource type="PackedScene" uid="uid://cgthrhw5mho33" path="res://cenas/peixe/peixe_azul.tscn" id="7_0wone"]
+[ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixe/peixe_verde.tscn" id="8_ua7yo"]
+[ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixe/peixe_vermelho.tscn" id="9_gb1k2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
-[node name="jogo" type="Node2D" unique_id=430194434]
+[sub_resource type="LabelSettings" id="LabelSettings_a8ubr"]
+font_size = 40
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
 
-[node name="player" type="Node2D" parent="." unique_id=305810562]
-position = Vector2(343, 547)
+[sub_resource type="LabelSettings" id="LabelSettings_bmch6"]
+font_size = 40
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[node name="jogo" type="Node2D" unique_id=430194434]
+script = ExtResource("1_bmch6")
+
+[node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
+position = Vector2(356, 446)
 script = ExtResource("1_w152q")
+label_pontos = NodePath("../Interface/TextoPontos")
 
 [node name="BarcoSprite" type="Sprite2D" parent="player" unique_id=1125401417]
 scale = Vector2(1.8974212, 0.28830296)
@@ -34,10 +53,33 @@ position = Vector2(41, 954)
 
 [node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
 script = ExtResource("4_a8ubr")
-peixe_cena = ExtResource("3_4i5rx")
+tipos_de_peixes = Array[PackedScene]([ExtResource("3_4i5rx"), ExtResource("6_h2li5"), ExtResource("7_0wone"), ExtResource("8_ua7yo"), ExtResource("9_gb1k2")])
+altura_minima = 650.0
 
 [node name="Timer" type="Timer" parent="SpawnerPeixes" unique_id=1440818253]
-wait_time = 1.5
+autostart = true
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1255215868]
+
+[node name="TextoPontos" type="Label" parent="Interface" unique_id=1805334723]
+offset_left = 34.0
+offset_top = 38.0
+offset_right = 212.0
+offset_bottom = 93.0
+text = "Pontos: 0"
+label_settings = SubResource("LabelSettings_a8ubr")
+
+[node name="TextoTempo" type="Label" parent="Interface" unique_id=413812762]
+offset_left = 479.0
+offset_top = 38.0
+offset_right = 679.0
+offset_bottom = 93.0
+text = "Tempo: 60"
+label_settings = SubResource("LabelSettings_bmch6")
+
+[node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
+wait_time = 60.0
+one_shot = true
 autostart = true
 
 [connection signal="area_entered" from="player/Anzol" to="player" method="_on_anzol_area_entered"]

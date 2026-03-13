@@ -1,7 +1,8 @@
 extends Area2D
 
 var velocidade: float = 200.0 
-var direcao: int = 1 
+var direcao: int = 1
+@export var pontos: int = 20 # Agora você pode mudar esse valor no Inspector!
 
 func _ready():
 	# Se a direção for -1 (indo para a esquerda), vira a imagem do peixe
