@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d0wsvhsd7f4sd"]
+
+[ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="1_6kglw"]
+[ext_resource type="Script" uid="uid://cfiyab07l07c2" path="res://scripts/Menu/menu_principal.gd" id="1_gn1e4"]
+[ext_resource type="PackedScene" uid="uid://djcvsdykwknfw" path="res://cenas/jogo/jogo.tscn" id="2_v8y72"]
+
+[node name="MenuPrincipal" type="Control" unique_id=816190292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gn1e4")
+cena_do_jogo = ExtResource("2_v8y72")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=74821136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.6745098, 1, 1)
+
+[node name="BotaoPlay" type="TextureButton" parent="." unique_id=1004984038]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_6kglw")
+texture_pressed = ExtResource("1_6kglw")

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgthrhw5mho33" path="res://cenas/peixe/peixe_azul.tscn" id="7_0wone"]
 [ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixe/peixe_verde.tscn" id="8_ua7yo"]
 [ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixe/peixe_vermelho.tscn" id="9_gb1k2"]
+[ext_resource type="Script" uid="uid://dejk5dkhnk3tb" path="res://scripts/telaFimdoJogo/tela_fim_de_jogo.gd" id="10_0wone"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -24,8 +25,21 @@ shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 1)
 
-[node name="jogo" type="Node2D" unique_id=430194434]
+[sub_resource type="LabelSettings" id="LabelSettings_h2li5"]
+font_size = 60
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wone"]
+font_size = 30
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 1)
+
+[node name="jogo" type="Node2D" unique_id=430194434 node_paths=PackedStringArray("player")]
 script = ExtResource("1_bmch6")
+player = NodePath("player")
 
 [node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
 position = Vector2(356, 446)
@@ -76,6 +90,73 @@ offset_right = 679.0
 offset_bottom = 93.0
 text = "Tempo: 60"
 label_settings = SubResource("LabelSettings_bmch6")
+
+[node name="TelaFimDeJogo" type="Control" parent="Interface" unique_id=337080196]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_0wone")
+
+[node name="ColorRect" type="ColorRect" parent="Interface/TelaFimDeJogo" unique_id=1218205595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3529412)
+
+[node name="TextoTitulo" type="Label" parent="Interface/TelaFimDeJogo" unique_id=1957911675]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = -41.5
+offset_right = 192.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FIM DO JOGO"
+label_settings = SubResource("LabelSettings_h2li5")
+
+[node name="TextoPontuacaoFinal" type="Label" parent="Interface/TelaFimDeJogo" unique_id=472239519]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = 42.0
+offset_right = 67.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pontos: 0"
+label_settings = SubResource("LabelSettings_0wone")
+
+[node name="BotaoJogar" type="Button" parent="Interface/TelaFimDeJogo" unique_id=1509047082]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -395.0
+offset_right = 151.0
+offset_bottom = -338.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Jogar Novamente"
 
 [node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
 wait_time = 60.0
