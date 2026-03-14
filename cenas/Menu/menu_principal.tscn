@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.6745098, 1, 1)
+color = Color(6.9789587e-07, 0.27616623, 0.42392492, 1)
 
 [node name="BotaoPlay" type="TextureButton" parent="." unique_id=1004984038]
 layout_mode = 1
