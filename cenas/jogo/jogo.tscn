@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixe/peixe_verde.tscn" id="8_ua7yo"]
 [ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixe/peixe_vermelho.tscn" id="9_gb1k2"]
 [ext_resource type="Script" uid="uid://dejk5dkhnk3tb" path="res://scripts/telaFimdoJogo/tela_fim_de_jogo.gd" id="10_0wone"]
+[ext_resource type="Texture2D" uid="uid://b65eimi1wxo4w" path="res://imagens/barco.png" id="11_k85cr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -52,8 +53,8 @@ script = ExtResource("1_w152q")
 label_pontos = NodePath("../Interface/TextoPontos")
 
 [node name="BarcoSprite" type="Sprite2D" parent="player" unique_id=1125401417]
-scale = Vector2(1.8974212, 0.28830296)
-texture = ExtResource("2_4i5rx")
+scale = Vector2(5, 5)
+texture = ExtResource("11_k85cr")
 
 [node name="LinhaPesca" type="Line2D" parent="player" unique_id=1592300442]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0)
@@ -68,7 +69,9 @@ texture = ExtResource("2_4i5rx")
 shape = SubResource("CircleShape2D_kqu6x")
 
 [node name="Peixe" parent="." unique_id=675272164 instance=ExtResource("3_4i5rx")]
-position = Vector2(41, 954)
+visible = false
+position = Vector2(100, 992)
+scale = Vector2(1.5, 1.5)
 
 [node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
 script = ExtResource("4_a8ubr")
