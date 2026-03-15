@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://cgthrhw5mho33"]
 
-[ext_resource type="Script" uid="uid://bsj7fmqwg7f8l" path="res://scripts/peixe/peixe.gd" id="1_5alaq"]
-[ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="2_h3ac1"]
+[ext_resource type="Script" uid="uid://bsj7fmqwg7f8l" path="res://scripts/peixe/peixe.gd" id="1_c2dhy"]
+[ext_resource type="Texture2D" uid="uid://b20vrqb0oiakj" path="res://imagens/Fishing game asset collection/Fish/BlueTang.png" id="2_c2dhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqpse"]
-size = Vector2(56.76252, 30.781033)
+size = Vector2(156.8438, 48.024593)
 
 [node name="Peixe" type="Area2D" unique_id=675272164 groups=["peixes"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_5alaq")
+script = ExtResource("1_c2dhy")
 pontos = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056733503]
-position = Vector2(-4.7683716e-07, -0.5937891)
+position = Vector2(7.000001, -6.999998)
 scale = Vector2(1.3389118, 2.040621)
 shape = SubResource("RectangleShape2D_sqpse")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340325473]
-modulate = Color(0, 0, 17.557072, 1)
-scale = Vector2(0.5860465, 0.48022598)
-texture = ExtResource("2_h3ac1")
+scale = Vector2(7.3, 7.3)
+texture = ExtResource("2_c2dhy")

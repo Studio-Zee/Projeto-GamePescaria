@@ -2,17 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cmj7gxp03o3ms" path="res://scripts/jogoRaiz/cronometro.gd" id="1_bmch6"]
 [ext_resource type="Script" uid="uid://ddy125iwqgjqp" path="res://scripts/player/player.gd" id="1_w152q"]
-[ext_resource type="Texture2D" uid="uid://dg6kemjmabild" path="res://icon.svg" id="2_4i5rx"]
-[ext_resource type="PackedScene" uid="uid://spuc6dk7exs7" path="res://cenas/peixe/peixe.tscn" id="3_4i5rx"]
+[ext_resource type="PackedScene" uid="uid://spuc6dk7exs7" path="res://cenas/peixes/peixe.tscn" id="3_4i5rx"]
+[ext_resource type="Texture2D" uid="uid://bppcs7ywoo88u" path="res://imagens/anzol2.png" id="4_0483k"]
 [ext_resource type="Script" uid="uid://d0k8jdw7liixr" path="res://scripts/spawnerPeixes/spawner_peixes.gd" id="4_a8ubr"]
-[ext_resource type="PackedScene" uid="uid://cbox1b5hnqnpm" path="res://cenas/peixe/peixe_amarelo.tscn" id="6_h2li5"]
-[ext_resource type="PackedScene" uid="uid://cgthrhw5mho33" path="res://cenas/peixe/peixe_azul.tscn" id="7_0wone"]
-[ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixe/peixe_verde.tscn" id="8_ua7yo"]
-[ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixe/peixe_vermelho.tscn" id="9_gb1k2"]
+[ext_resource type="PackedScene" uid="uid://cbox1b5hnqnpm" path="res://cenas/peixes/peixe_amarelo.tscn" id="6_h2li5"]
+[ext_resource type="PackedScene" uid="uid://cgthrhw5mho33" path="res://cenas/peixes/peixe_azul.tscn" id="7_0wone"]
+[ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixes/peixe_verde.tscn" id="8_ua7yo"]
+[ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixes/peixe_vermelho.tscn" id="9_gb1k2"]
 [ext_resource type="Script" uid="uid://dejk5dkhnk3tb" path="res://scripts/telaFimdoJogo/tela_fim_de_jogo.gd" id="10_0wone"]
 [ext_resource type="Texture2D" uid="uid://b65eimi1wxo4w" path="res://imagens/barco.png" id="11_k85cr"]
+[ext_resource type="Texture2D" uid="uid://cxef81ou1xnfr" path="res://imagens/pescador com vara.png" id="13_0483k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
+radius = 65.192024
 
 [sub_resource type="LabelSettings" id="LabelSettings_a8ubr"]
 font_size = 40
@@ -48,7 +50,8 @@ offset_bottom = 1280.0
 color = Color(0, 0.6745098, 1, 1)
 
 [node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
-position = Vector2(356, 446)
+position = Vector2(376.00003, 413)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_w152q")
 label_pontos = NodePath("../Interface/TextoPontos")
 
@@ -58,15 +61,24 @@ texture = ExtResource("11_k85cr")
 
 [node name="LinhaPesca" type="Line2D" parent="player" unique_id=1592300442]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0)
+width = 2.0
 
 [node name="Anzol" type="Area2D" parent="player" unique_id=1562847963]
+position = Vector2(74, -44)
 scale = Vector2(0.2, 0.2)
 
 [node name="AnzolSprite" type="Sprite2D" parent="player/Anzol" unique_id=2025160907]
-texture = ExtResource("2_4i5rx")
+scale = Vector2(15, 15)
+texture = ExtResource("4_0483k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Anzol" unique_id=713681700]
+[node name="AnzolColisao" type="CollisionShape2D" parent="player/Anzol" unique_id=713681700]
+position = Vector2(0, 4.9999995)
 shape = SubResource("CircleShape2D_kqu6x")
+
+[node name="PescadorSprite" type="Sprite2D" parent="player" unique_id=553234223]
+position = Vector2(9, -38)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("13_0483k")
 
 [node name="Peixe" parent="." unique_id=675272164 instance=ExtResource("3_4i5rx")]
 visible = false
@@ -76,9 +88,10 @@ scale = Vector2(1.5, 1.5)
 [node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
 script = ExtResource("4_a8ubr")
 tipos_de_peixes = Array[PackedScene]([ExtResource("3_4i5rx"), ExtResource("6_h2li5"), ExtResource("7_0wone"), ExtResource("8_ua7yo"), ExtResource("9_gb1k2")])
-altura_minima = 650.0
+altura_minima = 665.0
 
 [node name="Timer" type="Timer" parent="SpawnerPeixes" unique_id=1440818253]
+wait_time = 1.6999999999999997
 autostart = true
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1255215868]

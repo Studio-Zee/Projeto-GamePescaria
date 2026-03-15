@@ -19,7 +19,7 @@ func _ready():
 	pos_inicial_anzol = anzol.position
 	
 	linha_pesca.clear_points()
-	linha_pesca.add_point(Vector2.ZERO)
+	linha_pesca.add_point(pos_inicial_anzol) 
 	linha_pesca.add_point(anzol.position)
 	
 	if label_pontos:

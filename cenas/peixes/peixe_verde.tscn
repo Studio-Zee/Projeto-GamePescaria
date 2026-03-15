@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://bpy6gk4csqwk1"]
 
-[ext_resource type="Script" uid="uid://bsj7fmqwg7f8l" path="res://scripts/peixe/peixe.gd" id="1_vjcgp"]
-[ext_resource type="Texture2D" uid="uid://c8nwlkkmjjxh0" path="res://imagens/Fish/fish4Texture.png" id="2_vjcgp"]
+[ext_resource type="Script" uid="uid://bsj7fmqwg7f8l" path="res://scripts/peixe/peixe.gd" id="1_dmk6s"]
+[ext_resource type="Texture2D" uid="uid://c8nwlkkmjjxh0" path="res://imagens/Fish/fish4Texture.png" id="2_quvtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqpse"]
-size = Vector2(88.13129, 24.502346)
+size = Vector2(167.30005, 41.16394)
 
 [node name="Peixe" type="Area2D" unique_id=675272164 groups=["peixes"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_vjcgp")
+script = ExtResource("1_dmk6s")
 pontos = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056733503]
-position = Vector2(1.000001, 1.0000005)
+position = Vector2(2, -2.000002)
 scale = Vector2(1.3389118, 2.040621)
 shape = SubResource("RectangleShape2D_sqpse")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340325473]
-texture = ExtResource("2_vjcgp")
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_quvtg")
