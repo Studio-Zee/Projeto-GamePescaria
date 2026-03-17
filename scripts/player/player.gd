@@ -5,8 +5,10 @@ extends Node2D
 # NOVO: Exportamos as velocidades para você ajustar direto no Inspector!
 @export var velocidade_anzol: float = 400.0 # Velocidade normal (descendo ou voltando vazio)
 @export var velocidade_com_peixe: float = 150.0 # Velocidade mais lenta puxando o peixe
+@onready var pescador_sprite = $PescadorSprite
 
 @onready var anzol = $Anzol
+@onready var barco_sprite = $BarcoSprite
 @onready var linha_pesca = $LinhaPesca
 
 var pescando = false
@@ -32,6 +34,13 @@ func _input(event):
 	if (event is InputEventScreenTouch or event is InputEventMouseButton) and event.pressed:
 		if not pescando:
 			var posicao_alvo = to_local(get_global_mouse_position())
+			
+			# NOVO: Verifica de qual lado foi o clique
+			if posicao_alvo.x < 0:
+				virar_personagem(true)  # Clicou nas costas, vira pra esquerda
+			else:
+				virar_personagem(false) # Clicou na frente, vira pra direita
+				
 			lancar_anzol(posicao_alvo)
 
 func lancar_anzol(pos_alvo: Vector2):
@@ -103,3 +112,22 @@ func _mostrar_texto_flutuante(valor: int):
 	tween.tween_property(texto, "position", texto.position + Vector2(0, -50), 0.6)
 	tween.parallel().tween_property(texto, "modulate:a", 0.0, 0.6)
 	tween.tween_callback(texto.queue_free)
+
+func virar_personagem(para_esquerda: bool):
+	if para_esquerda:
+		# Espelha as imagens para a esquerda
+		barco_sprite.flip_h = true
+		pescador_sprite.flip_h = true
+		# Transforma a posição X da vara em negativa (joga ela pro lado esquerdo)
+		pos_inicial_anzol.x = -abs(pos_inicial_anzol.x)
+	else:
+		# Volta as imagens ao normal (olhando para a direita)
+		barco_sprite.flip_h = false
+		pescador_sprite.flip_h = false
+		# Transforma a posição X da vara em positiva (joga ela pro lado direito)
+		pos_inicial_anzol.x = abs(pos_inicial_anzol.x)
+	
+	# Atualiza o anzol e a base da linha instantaneamente para o novo lado
+	anzol.position = pos_inicial_anzol
+	linha_pesca.set_point_position(0, pos_inicial_anzol)
+	linha_pesca.set_point_position(1, anzol.position)
