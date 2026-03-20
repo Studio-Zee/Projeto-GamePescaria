@@ -44,14 +44,17 @@ shadow_offset = Vector2(0, 1)
 script = ExtResource("1_bmch6")
 player = NodePath("player")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=6479665]
-offset_right = 720.0
+[node name="SuperficieMar" type="ColorRect" parent="." unique_id=6479665]
+offset_left = -40.0
+offset_top = 476.0
+offset_right = 765.0
 offset_bottom = 1280.0
-color = Color(0, 0.6745098, 1, 1)
+color = Color(0.11764706, 0.3137255, 0.48235294, 1)
 
-[node name="MarSprite" type="TextureRect" parent="." unique_id=592093071]
+[node name="ceu" type="ColorRect" parent="." unique_id=1673727527]
 offset_right = 720.0
-offset_bottom = 1280.0
+offset_bottom = 476.0
+color = Color(0.5764706, 0.7882353, 0.827451, 1)
 
 [node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
 position = Vector2(376.00003, 413)

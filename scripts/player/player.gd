@@ -11,7 +11,7 @@ extends Node2D
 @onready var anzol = $Anzol
 @onready var linha_pesca = $LinhaPesca
 
-# NOVO: Referências para os marcadores que você criou no editor
+# Referências para os marcadores que você criou no editor
 @onready var ponto_vara_direita = $PontoVaraDireita
 @onready var ponto_vara_esquerda = $PontoVaraEsquerda
 
@@ -32,9 +32,24 @@ func _ready():
 	
 	if label_pontos:
 		label_pontos.text = "Pontos: " + str(pontuacao)
+	
+	# === 1. ANIMAÇÃO DE BALANÇO VERTICAL (Bobbing) ===
+	var pos_original = position
+	var tween_balanco = create_tween().set_loops()
+	
+	# Sobe e desce 3 pixels suavemente
+	tween_balanco.tween_property(self, "position:y", pos_original.y - 3, 2.0).set_trans(Tween.TRANS_SINE)
+	tween_balanco.tween_property(self, "position:y", pos_original.y + 3, 2.0).set_trans(Tween.TRANS_SINE)
+
+	# === 2. NOVA ANIMAÇÃO DE GANGORRA HORIZONTAL (Rocking) ===
+	var tween_gangorra = create_tween().set_loops()
+	
+	# Inclina 2 graus para frente e para trás
+	tween_gangorra.tween_property(self, "rotation_degrees", 2.0, 1.5).set_trans(Tween.TRANS_SINE)
+	tween_gangorra.tween_property(self, "rotation_degrees", -2.0, 1.5).set_trans(Tween.TRANS_SINE)
 
 func _process(_delta):
-	# NOVO: Garante que a base da linha sempre siga a variável correta (direita ou esquerda)
+	# Garante que a base da linha sempre siga a variável correta (direita ou esquerda)
 	linha_pesca.set_point_position(0, pos_inicial_anzol)
 	linha_pesca.set_point_position(1, anzol.position)
 
@@ -126,13 +141,13 @@ func virar_personagem(para_esquerda: bool):
 		# Espelha as imagens para a esquerda
 		barco_sprite.flip_h = true
 		pescador_sprite.flip_h = true
-		# NOVO: Define a posição inicial usando o marcador da esquerda
+		# Define a posição inicial usando o marcador da esquerda
 		pos_inicial_anzol = ponto_vara_esquerda.position
 	else:
 		# Volta as imagens ao normal (olhando para a direita)
 		barco_sprite.flip_h = false
 		pescador_sprite.flip_h = false
-		# NOVO: Define a posição inicial usando o marcador da direita
+		# Define a posição inicial usando o marcador da direita
 		pos_inicial_anzol = ponto_vara_direita.position
 	
 	# Atualiza o anzol e a base da linha instantaneamente para o novo lado
