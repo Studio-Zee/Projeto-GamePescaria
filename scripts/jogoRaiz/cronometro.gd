@@ -5,18 +5,22 @@ extends Node2D
 @onready var tela_fim_de_jogo = $Interface/TelaFimDeJogo
 @onready var spawner_peixes = $SpawnerPeixes
 
-# Mantemos a referência caso você queira fazer algo com a água no futuro
-@onready var superficie_mar = $SuperficieMar 
+# Referências dos textos superiores
+@onready var texto_meta: Label = $Interface/TextoMeta
+@onready var texto_total: Label = $Interface/TextoTotal
+
 @export var player: Node2D 
+var meta_fase: int = 200
+var pontos_totais: int = 0
 
 func _ready():
-	# Conecta o timer para acabar o jogo
 	timer_jogo.timeout.connect(_on_tempo_esgotado)
 	
-	# (O código de balanço da água foi totalmente removido daqui!)
+	# Atualiza os textos da tela usando as nossas variáveis!
+	if texto_meta: texto_meta.text = "Meta: " + str(meta_fase)
+	if texto_total: texto_total.text = "Total: " + str(pontos_totais)
 
 func _process(_delta):
-	# Atualiza o cronômetro na tela
 	if not timer_jogo.is_stopped():
 		var tempo_restante = int(timer_jogo.time_left)
 		texto_tempo.text = "Tempo: " + str(tempo_restante)
@@ -28,6 +32,12 @@ func _on_tempo_esgotado():
 		spawner_peixes.queue_free() 
 	
 	if player:
-		tela_fim_de_jogo.mostrar_tela(player.pontuacao)
+		# === LÓGICA DE METAS ===
+		if player.pontuacao >= meta_fase:
+			# Chama a função de Vitória lá do script do Painel!
+			tela_fim_de_jogo.mostrar_vitoria(player.pontuacao) 
+		else:
+			# Chama a função de Derrota lá do script do Painel!
+			tela_fim_de_jogo.mostrar_derrota(player.pontuacao)
 	else:
-		print("ERRO: O script não achou o Player! Arraste ele no Inspector.")
+		print("ERRO: O script não achou o Player!")

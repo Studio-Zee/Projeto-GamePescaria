@@ -3,7 +3,7 @@ extends Control
 # Vai criar um campo no Inspector para você arrastar a cena do jogo
 @export var cena_do_jogo: PackedScene 
 
-@onready var botao_play = $BotaoPlay
+@onready var botao_play = $BotaoJogar
 
 func _ready():
 	# Conecta o clique do botão

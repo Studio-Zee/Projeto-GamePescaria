@@ -18,24 +18,40 @@ radius = 65.192024
 
 [sub_resource type="LabelSettings" id="LabelSettings_a8ubr"]
 font_size = 40
+font_color = Color(1, 0, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 1)
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bmch6"]
 font_size = 40
+font_color = Color(1, 0, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r8fqq"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0483k"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2li5"]
-font_size = 60
+font_size = 80
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wone"]
-font_size = 30
+font_size = 45
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 1)
@@ -45,9 +61,8 @@ script = ExtResource("1_bmch6")
 player = NodePath("player")
 
 [node name="SuperficieMar" type="ColorRect" parent="." unique_id=6479665]
-offset_left = -40.0
 offset_top = 476.0
-offset_right = 757.0
+offset_right = 720.0
 offset_bottom = 1280.0
 color = Color(0.11764706, 0.3137255, 0.48235294, 1)
 
@@ -101,7 +116,7 @@ scale = Vector2(1.5, 1.5)
 [node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
 script = ExtResource("4_a8ubr")
 tipos_de_peixes = Array[PackedScene]([ExtResource("3_4i5rx"), ExtResource("6_h2li5"), ExtResource("7_0wone"), ExtResource("8_ua7yo"), ExtResource("9_gb1k2")])
-altura_minima = 665.0
+altura_minima = 670.0
 
 [node name="Timer" type="Timer" parent="SpawnerPeixes" unique_id=1440818253]
 wait_time = 1.6999999999999995
@@ -111,19 +126,37 @@ autostart = true
 
 [node name="TextoPontos" type="Label" parent="Interface" unique_id=1805334723]
 offset_left = 34.0
-offset_top = 38.0
+offset_top = 97.0
 offset_right = 212.0
-offset_bottom = 93.0
+offset_bottom = 152.0
 text = "Pontos: 0"
 label_settings = SubResource("LabelSettings_a8ubr")
 
 [node name="TextoTempo" type="Label" parent="Interface" unique_id=413812762]
-offset_left = 479.0
-offset_top = 38.0
-offset_right = 679.0
-offset_bottom = 93.0
+offset_left = 486.0
+offset_top = 97.0
+offset_right = 686.0
+offset_bottom = 152.0
 text = "Tempo: 60"
 label_settings = SubResource("LabelSettings_bmch6")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoMeta" type="Label" parent="Interface" unique_id=1022862617]
+offset_left = 34.0
+offset_top = 42.0
+offset_right = 223.0
+offset_bottom = 97.0
+text = "Meta: 200"
+label_settings = SubResource("LabelSettings_r8fqq")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoTotal" type="Label" parent="Interface" unique_id=383102465]
+offset_left = 486.0
+offset_top = 42.0
+offset_right = 627.0
+offset_bottom = 97.0
+text = "Total: 0"
+label_settings = SubResource("LabelSettings_0483k")
 
 [node name="TelaFimDeJogo" type="Control" parent="Interface" unique_id=337080196]
 visible = false
@@ -142,7 +175,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.3529412)
+color = Color(0, 0, 0, 0.8)
 
 [node name="TextoTitulo" type="Label" parent="Interface/TelaFimDeJogo" unique_id=1957911675]
 layout_mode = 1
@@ -151,10 +184,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.5
-offset_top = -41.5
-offset_right = 192.5
-offset_bottom = 41.5
+offset_left = -256.0
+offset_top = -181.5
+offset_right = 256.0
+offset_bottom = -71.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "FIM DO JOGO"
@@ -167,10 +200,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -67.0
-offset_top = 42.0
-offset_right = 67.0
-offset_bottom = 84.0
+offset_left = -100.0
+offset_top = -77.0
+offset_right = 100.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Pontos: 0"
@@ -183,13 +216,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -151.0
-offset_top = -395.0
-offset_right = 151.0
-offset_bottom = -338.0
+offset_left = -171.5
+offset_top = -284.0
+offset_right = 171.5
+offset_bottom = -221.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 40
 text = "Jogar Novamente"
 
 [node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
