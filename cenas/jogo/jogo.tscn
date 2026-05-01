@@ -57,7 +57,7 @@ offset_bottom = 476.0
 color = Color(0.5764706, 0.7882353, 0.827451, 1)
 
 [node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
-position = Vector2(376.00003, 413)
+position = Vector2(376.00003, 438.00003)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_w152q")
 label_pontos = NodePath("../Interface/TextoPontos")

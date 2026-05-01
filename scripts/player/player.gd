@@ -58,6 +58,12 @@ func _input(event):
 		if not pescando:
 			var posicao_alvo = to_local(get_global_mouse_position())
 			
+			# === NOVA TRAVA DO CÉU (Bloqueio Total) ===
+			# Se o clique (alvo.y) for mais alto que a ponta da vara...
+			if posicao_alvo.y < pos_inicial_anzol.y:
+				return # ... ABORTA A MISSÃO! Ele sai da função aqui e não faz nada.
+			
+			# Se passou da trava acima, é porque o clique foi na água!
 			# Verifica de qual lado foi o clique
 			if posicao_alvo.x < 0:
 				virar_personagem(true)  # Clicou nas costas, vira pra esquerda
