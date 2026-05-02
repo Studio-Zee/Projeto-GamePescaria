@@ -126,7 +126,13 @@ func _on_anzol_area_entered(area: Area2D) -> void:
 func _grudar_peixe(peixe: Area2D):
 	if is_instance_valid(peixe):
 		peixe.reparent(anzol)
+		
+		# Ajusta a posição do peixe para ficar pendurado um pouco abaixo do anzol
 		peixe.position = Vector2(0, 20)
+		
+		# === NOVO: GIRA O PEIXE PARA CIMA ===
+		# Colocamos -90 graus para a cabeça dele apontar para a linha!
+		peixe.rotation_degrees = 90
 
 func _mostrar_texto_flutuante(valor: int):
 	var texto = Label.new()

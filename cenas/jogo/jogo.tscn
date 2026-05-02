@@ -159,7 +159,6 @@ text = "Total: 0"
 label_settings = SubResource("LabelSettings_0483k")
 
 [node name="TelaFimDeJogo" type="Control" parent="Interface" unique_id=337080196]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,13 +184,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -256.0
-offset_top = -181.5
+offset_top = -175.0
 offset_right = 256.0
-offset_bottom = -71.5
+offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "FIM DO JOGO"
 label_settings = SubResource("LabelSettings_h2li5")
+horizontal_alignment = 1
 
 [node name="TextoPontuacaoFinal" type="Label" parent="Interface/TelaFimDeJogo" unique_id=472239519]
 layout_mode = 1
@@ -226,7 +225,7 @@ theme_override_font_sizes/font_size = 40
 text = "Jogar Novamente"
 
 [node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
-wait_time = 60.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 

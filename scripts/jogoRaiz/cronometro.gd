@@ -5,20 +5,19 @@ extends Node2D
 @onready var tela_fim_de_jogo = $Interface/TelaFimDeJogo
 @onready var spawner_peixes = $SpawnerPeixes
 
-# Referências dos textos superiores
 @onready var texto_meta: Label = $Interface/TextoMeta
 @onready var texto_total: Label = $Interface/TextoTotal
 
 @export var player: Node2D 
-var meta_fase: int = 200
-var pontos_totais: int = 0
+
+# APAGAMOS AS VARIÁVEIS ANTIGAS DAQUI! Vamos usar o Global.
 
 func _ready():
 	timer_jogo.timeout.connect(_on_tempo_esgotado)
 	
-	# Atualiza os textos da tela usando as nossas variáveis!
-	if texto_meta: texto_meta.text = "Meta: " + str(meta_fase)
-	if texto_total: texto_total.text = "Total: " + str(pontos_totais)
+	# Puxa os valores direto do nosso script Global "fantasma"!
+	if texto_meta: texto_meta.text = "Meta: " + str(Global.meta_atual)
+	if texto_total: texto_total.text = "Total: " + str(Global.pontos_totais)
 
 func _process(_delta):
 	if not timer_jogo.is_stopped():
@@ -32,12 +31,20 @@ func _on_tempo_esgotado():
 		spawner_peixes.queue_free() 
 	
 	if player:
-		# === LÓGICA DE METAS ===
-		if player.pontuacao >= meta_fase:
-			# Chama a função de Vitória lá do script do Painel!
+		# Verifica se a pontuação atingiu a meta GLOBAL
+		if player.pontuacao >= Global.meta_atual:
+			
+			# === VITÓRIA: GUARDA OS PONTOS E AUMENTA A DIFICULDADE! ===
+			Global.pontos_totais += player.pontuacao # Soma no total
+			Global.meta_atual += 50 # Próxima fase será mais difícil!
+			
 			tela_fim_de_jogo.mostrar_vitoria(player.pontuacao) 
+			
 		else:
-			# Chama a função de Derrota lá do script do Painel!
+			# === DERROTA: ZERA TUDO PARA O NOVO JOGO ===
+			Global.pontos_totais = 0
+			Global.meta_atual = 200 # Volta a meta pro fácil
+			
 			tela_fim_de_jogo.mostrar_derrota(player.pontuacao)
 	else:
 		print("ERRO: O script não achou o Player!")
