@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cfiyab07l07c2" path="res://scripts/Menu/menu_principal.gd" id="1_gn1e4"]
 [ext_resource type="PackedScene" uid="uid://djcvsdykwknfw" path="res://cenas/jogo/jogo.tscn" id="2_v8y72"]
 [ext_resource type="Texture2D" uid="uid://cqa6alm60147h" path="res://imagens/play.png" id="4_04bt7"]
+[ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="4_p5gb1"]
+[ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://imagens/Fishing game asset collection/Fish/PufferFish1.png" id="5_go1k5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04bt7"]
 font_size = 430
@@ -54,3 +56,25 @@ offset_right = 1438.7825
 offset_bottom = 1377.6521
 text = "Play"
 label_settings = SubResource("LabelSettings_04bt7")
+
+[node name="StarFish" type="Sprite2D" parent="." unique_id=1105166050]
+position = Vector2(614, 1173)
+scale = Vector2(3, 3)
+texture = ExtResource("4_p5gb1")
+
+[node name="StarFish2" type="Sprite2D" parent="." unique_id=1728857215]
+position = Vector2(156, 1116)
+rotation = 0.2617994
+scale = Vector2(5, 5)
+texture = ExtResource("4_p5gb1")
+
+[node name="StarFish3" type="Sprite2D" parent="." unique_id=717045961]
+position = Vector2(510, 996.00006)
+rotation = -0.2617994
+scale = Vector2(3.8408284, 3.6577415)
+texture = ExtResource("4_p5gb1")
+
+[node name="PufferFish1" type="Sprite2D" parent="." unique_id=1554862061]
+position = Vector2(217, 930)
+scale = Vector2(5, 5)
+texture = ExtResource("5_go1k5")
