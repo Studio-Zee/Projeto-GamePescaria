@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nfsjqvscjp3y"
-path="res://.godot/imported/PufferFish1.png-8cc39cac131a0928c843cb1af05686a2.ctex"
+path="res://.godot/imported/PufferFish1.png-e9a4c6d00907ca23304e44038e78df23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/Fishing game asset collection/Fish/PufferFish1.png"
-dest_files=["res://.godot/imported/PufferFish1.png-8cc39cac131a0928c843cb1af05686a2.ctex"]
+source_file="res://scripts/peixe/PufferFish1.png"
+dest_files=["res://.godot/imported/PufferFish1.png-e9a4c6d00907ca23304e44038e78df23.ctex"]
 
 [params]
 

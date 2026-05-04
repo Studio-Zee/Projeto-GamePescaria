@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://djcvsdykwknfw" path="res://cenas/jogo/jogo.tscn" id="2_v8y72"]
 [ext_resource type="Texture2D" uid="uid://cqa6alm60147h" path="res://imagens/play.png" id="4_04bt7"]
 [ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="4_p5gb1"]
-[ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://imagens/Fishing game asset collection/Fish/PufferFish1.png" id="5_go1k5"]
+[ext_resource type="Script" uid="uid://dte81f8ucv0p3" path="res://scripts/peixe/estrela.gd" id="5_33fum"]
+[ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://scripts/peixe/PufferFish1.png" id="5_go1k5"]
+[ext_resource type="Script" uid="uid://cwams2hv124wj" path="res://scripts/peixe/estrela2.gd" id="6_71yc3"]
 [ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="6_go1k5"]
+[ext_resource type="Script" uid="uid://mjygfvkfje2e" path="res://scripts/peixe/baiacu.gd" id="7_yp7xg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04bt7"]
 font_size = 430
@@ -22,7 +25,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 0.5
 }]
 
 [node name="MenuPrincipal" type="Control" unique_id=816190292]
@@ -72,25 +75,29 @@ offset_bottom = 1377.6521
 text = "Play"
 label_settings = SubResource("LabelSettings_04bt7")
 
-[node name="StarFish" type="Sprite2D" parent="." unique_id=1105166050]
+[node name="estrela" type="Sprite2D" parent="." unique_id=1105166050]
 position = Vector2(614, 1173)
 scale = Vector2(3, 3)
 texture = ExtResource("4_p5gb1")
+script = ExtResource("6_71yc3")
 
-[node name="StarFish2" type="Sprite2D" parent="." unique_id=1728857215]
+[node name="estrela2" type="Sprite2D" parent="." unique_id=1728857215]
 position = Vector2(156, 1116)
 rotation = 0.2617994
 scale = Vector2(5, 5)
 texture = ExtResource("4_p5gb1")
+script = ExtResource("6_71yc3")
 
-[node name="StarFish3" type="Sprite2D" parent="." unique_id=717045961]
+[node name="estrela3" type="Sprite2D" parent="." unique_id=717045961]
 position = Vector2(510, 996.00006)
 rotation = -0.2617994
 scale = Vector2(3.8408284, 3.6577415)
 texture = ExtResource("4_p5gb1")
+script = ExtResource("5_33fum")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1958761163]
+[node name="baiacu" type="AnimatedSprite2D" parent="." unique_id=1958761163]
 position = Vector2(217, 930)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_yp7xg")
-frame_progress = 0.8968176
+frame_progress = 0.754714
+script = ExtResource("7_yp7xg")
