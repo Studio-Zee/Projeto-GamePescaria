@@ -5,10 +5,25 @@
 [ext_resource type="Texture2D" uid="uid://cqa6alm60147h" path="res://imagens/play.png" id="4_04bt7"]
 [ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="4_p5gb1"]
 [ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://imagens/Fishing game asset collection/Fish/PufferFish1.png" id="5_go1k5"]
+[ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="6_go1k5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04bt7"]
 font_size = 430
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp7xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_go1k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_go1k5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="MenuPrincipal" type="Control" unique_id=816190292]
 layout_mode = 3
@@ -74,7 +89,8 @@ rotation = -0.2617994
 scale = Vector2(3.8408284, 3.6577415)
 texture = ExtResource("4_p5gb1")
 
-[node name="PufferFish1" type="Sprite2D" parent="." unique_id=1554862061]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1958761163]
 position = Vector2(217, 930)
 scale = Vector2(5, 5)
-texture = ExtResource("5_go1k5")
+sprite_frames = SubResource("SpriteFrames_yp7xg")
+frame_progress = 0.8968176

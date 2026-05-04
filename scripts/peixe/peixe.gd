@@ -9,6 +9,18 @@ func _ready():
 	if direcao == -1:
 		$Sprite2D.flip_h = true
 
+	# === ANIMAÇÃO DE NADAR (Wobble) ===
+	# Cria um Tween infinito
+	var tween_nadar = create_tween().set_loops()
+	
+	# Pega o nó da imagem do peixe (ajuste o nome se o seu for diferente)
+	var sprite = $Sprite2D 
+	
+	# Inclina 15 graus para cima muito rápido (0.2 segundos)
+	tween_nadar.tween_property(sprite, "rotation_degrees", 5.0, 0.9)
+	# Inclina 15 graus para baixo muito rápido (0.2 segundos)
+	tween_nadar.tween_property(sprite, "rotation_degrees", -5.0, 0.9)
+
 func _process(delta: float) -> void:
 	# Move o peixe
 	position.x += velocidade * direcao * delta

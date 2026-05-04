@@ -159,6 +159,7 @@ text = "Total: 0"
 label_settings = SubResource("LabelSettings_0483k")
 
 [node name="TelaFimDeJogo" type="Control" parent="Interface" unique_id=337080196]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
