@@ -226,7 +226,7 @@ theme_override_font_sizes/font_size = 40
 text = "Jogar Novamente"
 
 [node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
-wait_time = 20.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 

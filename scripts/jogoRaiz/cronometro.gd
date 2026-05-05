@@ -8,7 +8,7 @@ extends Node2D
 @onready var texto_meta: Label = $Interface/TextoMeta
 @onready var texto_total: Label = $Interface/TextoTotal
 
-@export var player: Node2D 
+@export var player: Node2D
 
 # APAGAMOS AS VARIÁVEIS ANTIGAS DAQUI! Vamos usar o Global.
 
@@ -28,22 +28,25 @@ func _on_tempo_esgotado():
 	texto_tempo.text = "Tempo: 0"
 	
 	if spawner_peixes:
-		spawner_peixes.queue_free() 
+		spawner_peixes.queue_free()
 	
 	if player:
 		# Verifica se a pontuação atingiu a meta GLOBAL
 		if player.pontuacao >= Global.meta_atual:
-			
 			# === VITÓRIA: GUARDA OS PONTOS E AUMENTA A DIFICULDADE! ===
-			Global.pontos_totais += player.pontuacao # Soma no total
-			Global.meta_atual += 50 # Próxima fase será mais difícil!
+			Global.pontos_totais += player.pontuacao
+			Global.meta_atual += 50
 			
-			tela_fim_de_jogo.mostrar_vitoria(player.pontuacao) 
+			# Aumenta a velocidade dos peixes em 30 pixels por segundo a cada fase!
+			Global.adicional_velocidade += 40.0
+			
+			tela_fim_de_jogo.mostrar_vitoria(player.pontuacao)
 			
 		else:
 			# === DERROTA: ZERA TUDO PARA O NOVO JOGO ===
 			Global.pontos_totais = 0
-			Global.meta_atual = 200 # Volta a meta pro fácil
+			Global.meta_atual = 200
+			Global.adicional_velocidade = 0.0 # Zera a velocidade extra
 			
 			tela_fim_de_jogo.mostrar_derrota(player.pontuacao)
 	else:
