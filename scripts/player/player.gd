@@ -19,6 +19,8 @@ var pescando = false
 var pos_inicial_anzol = Vector2.ZERO
 var tween_atual: Tween 
 
+var tem_peixe_no_anzol: bool = false
+
 var pontuacao: int = 0 
 
 func _ready():
@@ -109,6 +111,8 @@ func _on_anzol_area_entered(area: Area2D) -> void:
 		tween_atual.tween_callback(func(): 
 			pescando = false
 			anzol.set_deferred("monitoring", true) 
+
+			tem_peixe_no_anzol = false
 			
 			if is_instance_valid(area):
 				var pontos_ganhos = 20
@@ -121,9 +125,17 @@ func _on_anzol_area_entered(area: Area2D) -> void:
 				
 				_mostrar_texto_flutuante(pontos_ganhos)
 				area.queue_free() 
+				
 		)
 
 func _grudar_peixe(peixe: Area2D):
+
+	# === TRAVA DE SEGURANÇA ===
+	if tem_peixe_no_anzol == true:
+		return # Se já tem peixe, aborta a missão e ignora esse segundo peixe!
+		
+	tem_peixe_no_anzol = true # Agora o anzol está ocupado!
+
 	if is_instance_valid(peixe):
 		peixe.reparent(anzol)
 		
