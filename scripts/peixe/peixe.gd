@@ -9,7 +9,6 @@ func _ready():
 	if direcao == -1:
 		$Sprite2D.flip_h = true
 
-	# === ANIMAÇÃO DE NADAR (Wobble) ===
 	# Cria um Tween infinito
 	var tween_nadar = create_tween().set_loops()
 	
