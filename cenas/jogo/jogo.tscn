@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dejk5dkhnk3tb" path="res://scripts/telaFimdoJogo/tela_fim_de_jogo.gd" id="10_0wone"]
 [ext_resource type="Texture2D" uid="uid://b65eimi1wxo4w" path="res://imagens/barco.png" id="11_k85cr"]
 [ext_resource type="Texture2D" uid="uid://cxef81ou1xnfr" path="res://imagens/pescador com vara.png" id="13_0483k"]
+[ext_resource type="AudioStream" uid="uid://bd6rj4cfe7bno" path="res://sons/jogo/somJogo.wav" id="16_3pkea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 65.192024
@@ -114,10 +115,11 @@ position = Vector2(-56.00002, -46.000004)
 
 [node name="SomSplash" type="AudioStreamPlayer" parent="player" unique_id=1051195476]
 stream = ExtResource("7_wno68")
+volume_db = -25.0
 
 [node name="SomPonto" type="AudioStreamPlayer" parent="player" unique_id=1082855494]
 stream = ExtResource("8_ahnos")
-volume_db = -12.26
+volume_db = -38.0
 
 [node name="Peixe" parent="." unique_id=675272164 instance=ExtResource("3_4i5rx")]
 visible = false
@@ -127,10 +129,10 @@ scale = Vector2(1.5, 1.5)
 [node name="SpawnerPeixes" type="Node2D" parent="." unique_id=1524064787]
 script = ExtResource("4_a8ubr")
 tipos_de_peixes = Array[PackedScene]([ExtResource("3_4i5rx"), ExtResource("6_h2li5"), ExtResource("7_0wone"), ExtResource("8_ua7yo"), ExtResource("9_gb1k2")])
-altura_minima = 670.0
+altura_minima = 680.0
 
 [node name="Timer" type="Timer" parent="SpawnerPeixes" unique_id=1440818253]
-wait_time = 1.6999999999999995
+wait_time = 1.7999999999999998
 autostart = true
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1255215868]
@@ -240,5 +242,10 @@ text = "Jogar Novamente"
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="SomJogo" type="AudioStreamPlayer" parent="." unique_id=266006123]
+stream = ExtResource("16_3pkea")
+volume_db = -27.0
+autoplay = true
 
 [connection signal="area_entered" from="player/Anzol" to="player" method="_on_anzol_area_entered"]

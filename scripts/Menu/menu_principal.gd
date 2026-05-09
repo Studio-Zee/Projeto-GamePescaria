@@ -49,13 +49,3 @@ func _on_botao_play_pressed():
 		# Deleta o menu para liberar memória
 		self.queue_free()
 	)
-
-
-func tocar_musica_infinita():
-	var musica = $AudioStreamPlayer
-	
-	# Verifica se o som existe e se o stream permite loop
-	if musica.stream:
-		musica.stream.loop = true # Ativa o loop diretamente no ficheiro
-	
-	musica.play()

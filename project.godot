@@ -28,6 +28,7 @@ Global="*uid://bh1mkvjued5bo"
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [input_devices]
 
@@ -37,3 +38,4 @@ pointing/emulate_touch_from_mouse=true
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
