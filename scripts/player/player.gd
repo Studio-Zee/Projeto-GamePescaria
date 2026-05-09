@@ -15,6 +15,11 @@ extends Node2D
 @onready var ponto_vara_direita = $PontoVaraDireita
 @onready var ponto_vara_esquerda = $PontoVaraEsquerda
 
+@export var cena_splash: PackedScene
+
+@onready var som_splash = $SomSplash
+@onready var som_ponto = $SomPonto
+
 var pescando = false
 var pos_inicial_anzol = Vector2.ZERO
 var tween_atual: Tween 
@@ -77,6 +82,25 @@ func _input(event):
 func lancar_anzol(pos_alvo: Vector2):
 	pescando = true
 	
+	# === NOVO: CRIA O EFEITO DE SPLASH ===
+	if cena_splash:
+		var splash = cena_splash.instantiate()
+		
+		# Primeiro, jogamos a partícula na cena principal (raiz do jogo)
+		get_tree().current_scene.add_child(splash) 
+		
+		# === CONSERTO DA POSIÇÃO (Lógica Infalível) ===
+		# Em vez de tentar converter a 'pos_alvo' local, vamos simplesmente pegar
+		# a posição GLOBAL do mouse EXATAMENTE AGORA!
+		# Isso garante que a água espirre no ponto exato onde o dedo/mouse tocou no mar.
+		splash.global_position = get_global_mouse_position() 
+		
+		splash.z_index = 100 # Garante que apareça NA FRENTE da água azul
+		splash.emitting = true
+		
+		if som_splash:
+			som_splash.play()
+	
 	var distancia = pos_inicial_anzol.distance_to(pos_alvo)
 	# Usa a velocidade normal para descer
 	var tempo_movimento = distancia / velocidade_anzol 
@@ -124,6 +148,10 @@ func _on_anzol_area_entered(area: Area2D) -> void:
 					label_pontos.text = "Pontos: " + str(pontuacao)
 				
 				_mostrar_texto_flutuante(pontos_ganhos)
+				
+				if som_ponto:
+					som_ponto.play()
+					
 				area.queue_free() 
 				
 		)

@@ -5,6 +5,8 @@ extends Control
 
 @onready var botao_play = $BotaoJogar
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 func _ready():
 	# Conecta o clique do botão
 	botao_play.pressed.connect(_on_botao_play_pressed)
@@ -47,3 +49,13 @@ func _on_botao_play_pressed():
 		# Deleta o menu para liberar memória
 		self.queue_free()
 	)
+
+
+func tocar_musica_infinita():
+	var musica = $AudioStreamPlayer
+	
+	# Verifica se o som existe e se o stream permite loop
+	if musica.stream:
+		musica.stream.loop = true # Ativa o loop diretamente no ficheiro
+	
+	musica.play()

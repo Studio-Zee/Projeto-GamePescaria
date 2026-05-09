@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://cmj7gxp03o3ms" path="res://scripts/jogoRaiz/cronometro.gd" id="1_bmch6"]
 [ext_resource type="Script" uid="uid://ddy125iwqgjqp" path="res://scripts/player/player.gd" id="1_w152q"]
 [ext_resource type="PackedScene" uid="uid://spuc6dk7exs7" path="res://cenas/peixes/peixe.tscn" id="3_4i5rx"]
+[ext_resource type="PackedScene" uid="uid://cyr7u2uv5rh3g" path="res://cenas/particulas/efeito_splash.tscn" id="3_0483k"]
 [ext_resource type="Texture2D" uid="uid://bppcs7ywoo88u" path="res://imagens/anzol2.png" id="4_0483k"]
 [ext_resource type="Script" uid="uid://d0k8jdw7liixr" path="res://scripts/spawnerPeixes/spawner_peixes.gd" id="4_a8ubr"]
 [ext_resource type="PackedScene" uid="uid://cbox1b5hnqnpm" path="res://cenas/peixes/peixe_amarelo.tscn" id="6_h2li5"]
 [ext_resource type="PackedScene" uid="uid://cgthrhw5mho33" path="res://cenas/peixes/peixe_azul.tscn" id="7_0wone"]
+[ext_resource type="AudioStream" uid="uid://chhr3mqaclvul" path="res://sons/waterSplash/257778__xtrgamr__water-splash.wav" id="7_wno68"]
+[ext_resource type="AudioStream" uid="uid://cqfkdjs21qc48" path="res://sons/pontos/sons_somMoeda.wav" id="8_ahnos"]
 [ext_resource type="PackedScene" uid="uid://bpy6gk4csqwk1" path="res://cenas/peixes/peixe_verde.tscn" id="8_ua7yo"]
 [ext_resource type="PackedScene" uid="uid://dhoxjgpevna55" path="res://cenas/peixes/peixe_vermelho.tscn" id="9_gb1k2"]
 [ext_resource type="Script" uid="uid://dejk5dkhnk3tb" path="res://scripts/telaFimdoJogo/tela_fim_de_jogo.gd" id="10_0wone"]
@@ -76,6 +79,7 @@ position = Vector2(376.00003, 438.00003)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_w152q")
 label_pontos = NodePath("../Interface/TextoPontos")
+cena_splash = ExtResource("3_0483k")
 
 [node name="BarcoSprite" type="Sprite2D" parent="player" unique_id=1125401417]
 scale = Vector2(5, 5)
@@ -107,6 +111,13 @@ position = Vector2(73.999985, -46.666668)
 
 [node name="PontoVaraEsquerda" type="Marker2D" parent="player" unique_id=1329072478]
 position = Vector2(-56.00002, -46.000004)
+
+[node name="SomSplash" type="AudioStreamPlayer" parent="player" unique_id=1051195476]
+stream = ExtResource("7_wno68")
+
+[node name="SomPonto" type="AudioStreamPlayer" parent="player" unique_id=1082855494]
+stream = ExtResource("8_ahnos")
+volume_db = -12.26
 
 [node name="Peixe" parent="." unique_id=675272164 instance=ExtResource("3_4i5rx")]
 visible = false

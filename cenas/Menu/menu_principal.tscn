@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cwams2hv124wj" path="res://scripts/peixe/estrela2.gd" id="6_71yc3"]
 [ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="6_go1k5"]
 [ext_resource type="Script" uid="uid://mjygfvkfje2e" path="res://scripts/peixe/baiacu.gd" id="7_yp7xg"]
+[ext_resource type="AudioStream" uid="uid://bq4vpx82vmqbw" path="res://sons/menu/497542__audeption__water-river-splashing-smooth.wav" id="10_2jswa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04bt7"]
 font_size = 430
@@ -101,3 +102,7 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_yp7xg")
 frame_progress = 0.754714
 script = ExtResource("7_yp7xg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=710389117]
+stream = ExtResource("10_2jswa")
+autoplay = true

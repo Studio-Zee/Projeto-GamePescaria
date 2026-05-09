@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cyr7u2uv5rh3g"]
+
+[ext_resource type="Script" uid="uid://lgdt754p084p" path="res://scripts/particulas/efeito_splash.gd" id="1_0nvut"]
+
+[node name="EfeitoSplash" type="CPUParticles2D" unique_id=475951195]
+emitting = false
+amount = 15
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(0, -1)
+gravity = Vector2(0, 400)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_max = 4.0
+color = Color(0.41663066, 0.7448892, 0.91336703, 1)
+script = ExtResource("1_0nvut")
