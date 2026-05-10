@@ -1,10 +1,53 @@
 [gd_scene format=3 uid="uid://di0kbtxa0eyp8"]
 
+[ext_resource type="Script" uid="uid://gx7boyoy1oum" path="res://scripts/creditos/efeitosCreditos.gd" id="1_3wq0f"]
+[ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="2_khhy3"]
+[ext_resource type="Script" uid="uid://cwams2hv124wj" path="res://scripts/peixe/estrela2.gd" id="3_swy5q"]
+[ext_resource type="Script" uid="uid://dte81f8ucv0p3" path="res://scripts/peixe/estrela.gd" id="4_154rs"]
+[ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="5_vomq1"]
+[ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://scripts/peixe/PufferFish1.png" id="6_ss2xs"]
+[ext_resource type="Script" uid="uid://mjygfvkfje2e" path="res://scripts/peixe/baiacu.gd" id="7_ad0ab"]
+[ext_resource type="Texture2D" uid="uid://bh8dm27a4fvcb" path="res://imagens/Fishing game asset collection/Object/NomalBasket.png" id="8_vomq1"]
+[ext_resource type="Texture2D" uid="uid://cngj3lw35h0js" path="res://imagens/Fishing game asset collection/Object/FullBasket.png" id="9_ss2xs"]
+[ext_resource type="Texture2D" uid="uid://cubp2xgfj0dav" path="res://imagens/Fishing game asset collection/Object/FisiBasket2.png" id="10_ad0ab"]
+[ext_resource type="Script" uid="uid://dj7knk3beacbb" path="res://scripts/creditos/animated_sprite_2d.gd" id="11_ss2xs"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_2yxyk"]
-font_size = 30
+font_size = 35
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp7xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vomq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ss2xs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eict5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vomq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ss2xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ad0ab")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="Creditos" type="Control" unique_id=954404662]
 layout_mode = 3
@@ -30,7 +73,15 @@ offset_right = 720.0
 offset_bottom = 829.0
 color = Color(0.5764706, 0.7882353, 0.827451, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1424076153]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=391537321]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 53.0
+offset_right = 696.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="TextoCreditos" type="Label" parent="." unique_id=1424076153]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -54,16 +105,58 @@ Efeitos Sonoros e Música
 label_settings = SubResource("LabelSettings_2yxyk")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=1970259029]
+[node name="TextoAudio" type="Label" parent="." unique_id=1970259029]
+modulate = Color(0, 0.4392157, 1, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -335.0
-offset_top = 502.0
+offset_top = 571.0
 offset_right = 336.0
-offset_bottom = 552.0
+offset_bottom = 621.0
 grow_horizontal = 2
-text = "[Clique para ver]"
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "[Links]"
 label_settings = SubResource("LabelSettings_2yxyk")
 horizontal_alignment = 1
+script = ExtResource("1_3wq0f")
+
+[node name="estrela" type="Sprite2D" parent="." unique_id=864431920]
+position = Vector2(582, 954)
+scale = Vector2(3, 3)
+texture = ExtResource("2_khhy3")
+script = ExtResource("3_swy5q")
+
+[node name="estrela2" type="Sprite2D" parent="." unique_id=2025441598]
+position = Vector2(183.99998, 1106)
+rotation = 0.2617994
+scale = Vector2(5, 5)
+texture = ExtResource("2_khhy3")
+script = ExtResource("3_swy5q")
+
+[node name="estrela3" type="Sprite2D" parent="." unique_id=975700458]
+visible = false
+position = Vector2(510, 996.00006)
+rotation = -0.2617994
+scale = Vector2(3.8408284, 3.6577415)
+texture = ExtResource("2_khhy3")
+script = ExtResource("4_154rs")
+
+[node name="baiacu" type="AnimatedSprite2D" parent="." unique_id=463844419]
+visible = false
+position = Vector2(217, 930)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_yp7xg")
+frame_progress = 0.754714
+script = ExtResource("7_ad0ab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=101901367]
+position = Vector2(297.00003, 850)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_eict5")
+frame_progress = 0.67222244
+script = ExtResource("11_ss2xs")
+
+[connection signal="gui_input" from="TextoAudio" to="TextoAudio" method="_on_gui_input"]
