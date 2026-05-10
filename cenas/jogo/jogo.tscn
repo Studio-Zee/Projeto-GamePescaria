@@ -245,7 +245,7 @@ autostart = true
 
 [node name="SomJogo" type="AudioStreamPlayer" parent="." unique_id=266006123]
 stream = ExtResource("16_3pkea")
-volume_db = -27.0
+volume_db = -19.0
 autoplay = true
 
 [connection signal="area_entered" from="player/Anzol" to="player" method="_on_anzol_area_entered"]

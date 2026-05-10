@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cfiyab07l07c2" path="res://scripts/Menu/menu_principal.gd" id="1_gn1e4"]
 [ext_resource type="PackedScene" uid="uid://djcvsdykwknfw" path="res://cenas/jogo/jogo.tscn" id="2_v8y72"]
-[ext_resource type="Texture2D" uid="uid://cqa6alm60147h" path="res://imagens/play.png" id="4_04bt7"]
 [ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="4_p5gb1"]
 [ext_resource type="Script" uid="uid://dte81f8ucv0p3" path="res://scripts/peixe/estrela.gd" id="5_33fum"]
 [ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://scripts/peixe/PufferFish1.png" id="5_go1k5"]
@@ -10,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="6_go1k5"]
 [ext_resource type="Script" uid="uid://mjygfvkfje2e" path="res://scripts/peixe/baiacu.gd" id="7_yp7xg"]
 [ext_resource type="AudioStream" uid="uid://bq4vpx82vmqbw" path="res://sons/menu/497542__audeption__water-river-splashing-smooth.wav" id="10_2jswa"]
+[ext_resource type="Texture2D" uid="uid://bbp3s8fdjnvya" path="res://imagens/Fishing game asset collection/Trash/GlassBottle.png" id="11_13rxe"]
+[ext_resource type="Texture2D" uid="uid://e5ynjqjlym1k" path="res://imagens/play.png" id="11_bisjw"]
+[ext_resource type="Script" uid="uid://cpyegufl4rk4m" path="res://scripts/Menu/creditos.gd" id="12_13rxe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_04bt7"]
 font_size = 430
@@ -39,16 +41,17 @@ grow_vertical = 2
 script = ExtResource("1_gn1e4")
 cena_do_jogo = ExtResource("2_v8y72")
 
-[node name="FundoCeu" type="ColorRect" parent="." unique_id=74821136]
+[node name="FundoMar" type="ColorRect" parent="." unique_id=74821136]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 829.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(6.9789587e-07, 0.27616623, 0.42392492, 1)
 
-[node name="FundoMar" type="ColorRect" parent="." unique_id=820522971]
+[node name="FundoCeu" type="ColorRect" parent="." unique_id=820522971]
 layout_mode = 0
 offset_right = 720.0
 offset_bottom = 829.0
@@ -65,7 +68,7 @@ offset_right = 1510.0
 offset_bottom = 1699.0
 grow_horizontal = 2
 scale = Vector2(0.23, 0.23)
-texture_normal = ExtResource("4_04bt7")
+texture_normal = ExtResource("11_bisjw")
 
 [node name="play" type="Label" parent="BotaoJogar" unique_id=59270413]
 layout_mode = 0
@@ -107,3 +110,13 @@ script = ExtResource("7_yp7xg")
 stream = ExtResource("10_2jswa")
 volume_db = -28.0
 autoplay = true
+
+[node name="BotaoCreditos" type="TextureButton" parent="." unique_id=1805942755]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 776.0
+offset_right = 625.0
+offset_bottom = 808.0
+scale = Vector2(3.3, 3.3)
+texture_normal = ExtResource("11_13rxe")
+script = ExtResource("12_13rxe")

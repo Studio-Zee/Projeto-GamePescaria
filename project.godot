@@ -17,6 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Pescaria"
 run/main_scene="uid://d0wsvhsd7f4sd"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://btyevevrhsrkg"
 config/icon="res://icon.svg"
 
 [autoload]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e5ynjqjlym1k"
-path="res://.godot/imported/play.png-b3cc1541974c7d3960e6ac73d4a2d033.ctex"
+uid="uid://bg2qif0ry7n4e"
+path="res://.godot/imported/marca.jpg-3cadb055a3baf1850ce5e84ca994b93e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/play.png"
-dest_files=["res://.godot/imported/play.png-b3cc1541974c7d3960e6ac73d4a2d033.ctex"]
+source_file="res://imagens/marca.jpg"
+dest_files=["res://.godot/imported/marca.jpg-3cadb055a3baf1850ce5e84ca994b93e.ctex"]
 
 [params]
 
