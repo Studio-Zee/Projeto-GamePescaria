@@ -7,26 +7,10 @@ extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-@onready var painel_creditos = $ModalCreditos
-@onready var botao_garrafa = $BotaoCreditos
-@onready var color_rect: ColorRect = $ColorRect
-
 func _ready():
 	# Conecta o clique do botão
 	botao_play.pressed.connect(_on_botao_play_pressed)
-	
-	# Garante que o painel comece invisível
-	painel_creditos.visible = false
-	color_rect.visible = false
-	
-	# Conecta o clique da garrafa para MOSTRAR a tela
-	botao_garrafa.pressed.connect(func():
-		painel_creditos.visible = true
-		color_rect.visible = true
-	)
-	
-	painel_creditos.gui_input.connect(_on_painel_creditos_gui_input)
-	
+
 func _on_botao_play_pressed():
 	if not cena_do_jogo:
 		print("Você esqueceu de arrastar a cena do jogo no Inspector do Menu!")
@@ -65,9 +49,17 @@ func _on_botao_play_pressed():
 		# Deleta o menu para liberar memória
 		self.queue_free()
 	)
-func _on_painel_creditos_gui_input(event):
-	# Verifica se o evento foi um clique de mouse ou um toque na tela do celular
-	if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
-		# Esconde o painel quando qualquer lugar da tela escura for tocado!
-		painel_creditos.visible = false
-		color_rect.visible = false
+
+func _on_botao_creditos_pressed() -> void:
+	var cena_creditos = preload("res://cenas/creditos/creditos.tscn").instantiate()
+	var largura = get_viewport_rect().size.x
+	
+	# Começa escondida na direita
+	cena_creditos.position = Vector2(largura, 0)
+	get_tree().root.add_child(cena_creditos)
+	
+	var tween = create_tween()
+	# Menu foge para a esquerda
+	tween.tween_property(self, "position", Vector2(-largura, 0), 0.5).set_trans(Tween.TRANS_CUBIC)
+	# Créditos entram vindo da direita
+	tween.parallel().tween_property(cena_creditos, "position", Vector2.ZERO, 0.5).set_trans(Tween.TRANS_CUBIC)

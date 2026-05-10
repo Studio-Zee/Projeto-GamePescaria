@@ -120,3 +120,5 @@ offset_bottom = 808.0
 scale = Vector2(3.3, 3.3)
 texture_normal = ExtResource("11_13rxe")
 script = ExtResource("12_13rxe")
+
+[connection signal="pressed" from="BotaoCreditos" to="." method="_on_botao_creditos_pressed"]
