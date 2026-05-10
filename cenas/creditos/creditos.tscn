@@ -156,7 +156,7 @@ script = ExtResource("7_ad0ab")
 position = Vector2(297.00003, 850)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_eict5")
-frame_progress = 0.67222244
+frame_progress = 0.21120757
 script = ExtResource("11_ss2xs")
 
 [connection signal="gui_input" from="TextoAudio" to="TextoAudio" method="_on_gui_input"]
