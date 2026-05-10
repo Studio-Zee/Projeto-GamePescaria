@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bheu3n60ln1ap" path="res://imagens/Fishing game asset collection/Fish/PufferFish0.png" id="5_vomq1"]
 [ext_resource type="Texture2D" uid="uid://nfsjqvscjp3y" path="res://scripts/peixe/PufferFish1.png" id="6_ss2xs"]
 [ext_resource type="Script" uid="uid://mjygfvkfje2e" path="res://scripts/peixe/baiacu.gd" id="7_ad0ab"]
+[ext_resource type="Texture2D" uid="uid://cvnpfuqs4v8o8" path="res://imagens/Fishing game asset collection/Object/EmptyBasket.png" id="8_ad0ab"]
 [ext_resource type="Texture2D" uid="uid://bh8dm27a4fvcb" path="res://imagens/Fishing game asset collection/Object/NomalBasket.png" id="8_vomq1"]
 [ext_resource type="Texture2D" uid="uid://cngj3lw35h0js" path="res://imagens/Fishing game asset collection/Object/FullBasket.png" id="9_ss2xs"]
 [ext_resource type="Texture2D" uid="uid://cubp2xgfj0dav" path="res://imagens/Fishing game asset collection/Object/FisiBasket2.png" id="10_ad0ab"]
@@ -35,6 +36,9 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_eict5"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ad0ab")
+}, {
 "duration": 1.0,
 "texture": ExtResource("8_vomq1")
 }, {
@@ -156,7 +160,7 @@ script = ExtResource("7_ad0ab")
 position = Vector2(297.00003, 850)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_eict5")
-frame_progress = 0.21120757
+frame_progress = 0.89977205
 script = ExtResource("11_ss2xs")
 
 [connection signal="gui_input" from="TextoAudio" to="TextoAudio" method="_on_gui_input"]
