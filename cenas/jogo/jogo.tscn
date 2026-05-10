@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://b65eimi1wxo4w" path="res://imagens/barco.png" id="11_k85cr"]
 [ext_resource type="Texture2D" uid="uid://cxef81ou1xnfr" path="res://imagens/pescador com vara.png" id="13_0483k"]
 [ext_resource type="AudioStream" uid="uid://bd6rj4cfe7bno" path="res://sons/jogo/somJogo.wav" id="16_3pkea"]
+[ext_resource type="Texture2D" uid="uid://ddx12epm5l3t8" path="res://imagens/btn_pause-normal.png" id="16_du4kt"]
+[ext_resource type="Texture2D" uid="uid://csykybbjpa3jb" path="res://imagens/btn_pause-pressed.png" id="17_82c4j"]
+[ext_resource type="PackedScene" uid="uid://wry0s2ahvl72" path="res://cenas/pausa/pausa.tscn" id="19_82c4j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 65.192024
@@ -72,11 +75,11 @@ color = Color(0.11764706, 0.3137255, 0.48235294, 1)
 
 [node name="ceu" type="ColorRect" parent="." unique_id=1673727527]
 offset_right = 720.0
-offset_bottom = 476.0
+offset_bottom = 501.0
 color = Color(0.5764706, 0.7882353, 0.827451, 1)
 
 [node name="player" type="Node2D" parent="." unique_id=305810562 node_paths=PackedStringArray("label_pontos")]
-position = Vector2(376.00003, 438.00003)
+position = Vector2(376.00003, 447)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_w152q")
 label_pontos = NodePath("../Interface/TextoPontos")
@@ -238,6 +241,12 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Jogar Novamente"
 
+[node name="BotaoPausar" type="TouchScreenButton" parent="Interface" unique_id=1254730227]
+position = Vector2(326, 42)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("16_du4kt")
+texture_pressed = ExtResource("17_82c4j")
+
 [node name="TimerJogo" type="Timer" parent="." unique_id=2003026349]
 wait_time = 60.0
 one_shot = true
@@ -248,4 +257,7 @@ stream = ExtResource("16_3pkea")
 volume_db = -19.0
 autoplay = true
 
+[node name="pausa" parent="." unique_id=2017433688 instance=ExtResource("19_82c4j")]
+
 [connection signal="area_entered" from="player/Anzol" to="player" method="_on_anzol_area_entered"]
+[connection signal="pressed" from="Interface/BotaoPausar" to="pausa" method="_on_botao_pausar_pressed"]
