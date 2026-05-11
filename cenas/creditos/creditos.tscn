@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://di0kbtxa0eyp8"]
 
 [ext_resource type="Script" uid="uid://gx7boyoy1oum" path="res://scripts/creditos/efeitosCreditos.gd" id="1_3wq0f"]
+[ext_resource type="Script" uid="uid://du5mp8a5x17py" path="res://scripts/creditos/creditos.gd" id="1_eict5"]
 [ext_resource type="Texture2D" uid="uid://blr65wea3m4s" path="res://imagens/Fishing game asset collection/Fish/StarFish.png" id="2_khhy3"]
 [ext_resource type="Script" uid="uid://cwams2hv124wj" path="res://scripts/peixe/estrela2.gd" id="3_swy5q"]
 [ext_resource type="Script" uid="uid://dte81f8ucv0p3" path="res://scripts/peixe/estrela.gd" id="4_154rs"]
@@ -60,6 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eict5")
 
 [node name="FundoMar" type="ColorRect" parent="." unique_id=1852345575]
 layout_mode = 1
@@ -163,4 +165,22 @@ sprite_frames = SubResource("SpriteFrames_eict5")
 frame_progress = 0.89977205
 script = ExtResource("11_ss2xs")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1257613060]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -57.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=349949059]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Voltar"
+
 [connection signal="gui_input" from="TextoAudio" to="TextoAudio" method="_on_gui_input"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
