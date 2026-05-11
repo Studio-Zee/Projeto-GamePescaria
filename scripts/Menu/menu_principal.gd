@@ -1,14 +1,10 @@
 extends Control
 
-# Vai criar um campo no Inspector para você arrastar a cena do jogo
 @export var cena_do_jogo: PackedScene 
 
 @onready var botao_play = $BotaoJogar
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-# 1. === NOVA VARIÁVEL AQUI ===
-# Precisamos salvar a cena dos créditos numa variável que o script inteiro consiga ver,
-# para podermos apagá-ela depois na hora de fechar.
 var cena_creditos_instancia: Node = null
 
 func _ready():
@@ -17,7 +13,6 @@ func _ready():
 
 func _on_botao_play_pressed():
 	if not cena_do_jogo:
-		print("Você esqueceu de arrastar a cena do jogo no Inspector do Menu!")
 		return
 		
 	botao_play.disabled = true
